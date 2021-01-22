@@ -1,1 +1,1 @@
-npm init chalk
+var chalk = require('chalk');
