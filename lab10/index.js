@@ -1,13 +1,16 @@
 import Express from "express";
 import fs from "fs";
+import cors from "cors";
+
 const App = Express();
-const port = 3010;
+const port = 3003;
+App.use(cors());
 
 let fileContents = fs.readFileSync("database.json");
 
 let database = JSON.parse(fileContents);
 
-App.use("/", Express.static("public"));
+App.use("/", Express.static("client/build"));
 
 App.get("employees/:name", (req, res) => {
     let result = {name: "name", age: "#"};
@@ -50,5 +53,5 @@ App.post("employee/:name/:age", (req, res) => {
 });
 
 App.listen(port, () => {
-    console.log.log("Server running!");
+    console.log("Server running!");
 })

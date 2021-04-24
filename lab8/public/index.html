@@ -3,9 +3,8 @@
         <script>
             function readAge(event) {
                 event.preventDefault();
-
                 let element = document.querySelector("#age");
-                fetch("ages/:number" + element.value)
+                fetch("/ages/" + element.value)
                 .then((res) => {
                     return res.json();
                 })
@@ -23,7 +22,7 @@
                 event.preventDefault();
 
                 let element = document.querySelector("#name");
-                fetch("employees/:name" + element.value)
+                fetch("/ages/" + element.value)
                 .then((res) => {
                     return res.json();
                 })
@@ -56,19 +55,19 @@
 
         <h2>Age</h2>
         <form onsubmit="readAge(event)">
-            <input id = "age" type="text">
+            <input id = "age" type="text"/>
             <button>Submit</button>
         </form>
 
         <h2>Name</h2>
-        <form onsubmit="readName(event)">
+         <form onsubmit="readName(event)">
             <input id = "name" type="text">
             <button>Submit</button>
         </form>
         <hr>
         <form onsubmit="createEmployee(event)">
-            <input id = "employeeName" type="text">
-            <input id = "employeeAge" type="text">
+            <input id = "employeeName" type="text"/>
+            <input id = "employeeAge" type="text"/>
             <button>Submit</button>
         </form>
         <hr>
