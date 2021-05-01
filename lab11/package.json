@@ -8,5 +8,8 @@
   },
   "author": "natalie laurent",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "mongodb": "^3.6.6"
+  }
 }

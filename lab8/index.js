@@ -50,5 +50,5 @@ App.post("employee/:name/:age", (req, res) => {
 });
 
 App.listen(port, () => {
-    console.log.log("Server running!");
+    console.log("Server running!");
 })
