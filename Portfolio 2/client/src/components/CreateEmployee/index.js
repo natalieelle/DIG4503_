@@ -20,7 +20,7 @@ class CreateEmployee extends React.Component {
                 });
 }
 
-    
+    //displays form
     render() {
         return(
             <div><hr></hr>

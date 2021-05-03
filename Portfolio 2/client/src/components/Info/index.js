@@ -1,10 +1,10 @@
 import React from "react";
 
 class Info extends React.Component {
-    
+    //render for display in App.js
             render() {
-        return(
-            <div>
+        return( //div set up to explain Database app
+            <div> 
                 <h1>Employee Database Application</h1>
                 <p><span>Please enter a name and an age into the database and it will return either confirm 
                     <br></br>that this in put is in the system, or it will throw an error in the reporting area.
