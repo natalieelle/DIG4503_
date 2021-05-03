@@ -3,7 +3,7 @@ class ReportingArea extends React.Component {
     render() {
         return(
             <div>
-                <h2>Reporting</h2>
+                <h2 id="reporting">Reporting</h2>
                 <div id="reportingArea"></div>
             </div>
         );

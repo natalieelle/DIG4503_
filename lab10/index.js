@@ -2,8 +2,9 @@ import Express from "express";
 import fs from "fs";
 import cors from "cors";
 
+
 const App = Express();
-const port = 3003;
+const port = 3010;
 App.use(cors());
 
 let fileContents = fs.readFileSync("database.json");
@@ -12,35 +13,31 @@ let database = JSON.parse(fileContents);
 
 App.use("/", Express.static("client/build"));
 
-App.get("/employees/:name", (req, res) => {
-    let result = {name: "name", age: "#"};
-
+App.get("/api/employees/name/:name", (req, res) => {
+    let result = {"error": "Not found!"};
+//name: "name", age: "#"
     database.forEach((value) => {
         if(req.params.name == value.name) {
         result = value;
 
-    } else {
-        res.json({ error: "not found"});
-    }
+    } 
 });
 res.json(result);
-})
 
-App.get("/ages/:number", (req, res) => {
-    let result = {name: "name", age: "#"};
+});
+
+App.get("/api/employees/ages/:number", (req, res) => {
+    let result = {"error": "Not found!"};
 
     database.forEach((value) => {
         if(req.params.number == value.number) {
         result = value;
-
-    } else {
-        res.json({ error: "not found"});
-    } 
+    }
 });
 res.json(result);
-})
+});
 
-App.post("/employee/:name/:age", (req, res) => {
+App.post("/api/employees/:name/:age", (req, res) => {
     let result = {
         "name": req.params.name, 
         "age": parseInt(req.params.age)
@@ -52,6 +49,17 @@ App.post("/employee/:name/:age", (req, res) => {
     res.json(result);
 });
 
+App.post("/api/employees/:name:age", (req, res) => {
+    let result = {
+        "name": req.poarams.name,
+        "age": pareseInt(req.params.age)
+    };
+    database.push(result);
+
+    fs.writeFileSync("database.json", json.stringify(database, null, '\t'));
+    res.json(result);
+});
+
 App.listen(port, () => {
     console.log("Server running!");
-})
+});

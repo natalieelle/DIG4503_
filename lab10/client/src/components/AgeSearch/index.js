@@ -6,7 +6,7 @@ class AgeSearch extends React.Component {
     event.preventDefault();
     // find the element with id= age
                 let element = document.querySelector("#age");
-                fetch("/ages/" + element.value)
+                fetch("api/employees/age/" + element.value)
                 .then((res) => {
                     //parse the string into a javascript object and return
                     return res.json();
